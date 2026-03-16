@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Noto Serif", ui-serif, Georgia, serif;
+
+  --color-agri-bg: #FAFAFA;
+  --color-agri-green-dark: #00302d;
+  /* Dark Teal */
+  --color-agri-green: #004f4a;
+  /* Primary Theme Color */
+  --color-agri-green-light: #4d8c88;
+  --color-agri-earth: #6B4E3D;
+  /* Chestnut/Taupe */
+  --color-agri-water: #00B4D8;
+  /* Vibrant Cyan Blue */
+  --color-agri-water-light: #90E0EF;
+  --color-agri-text: #1A1A1A;
+  --color-agri-text-muted: #5A5A5A;
+}
+
+body {
+  background-color: var(--color-agri-bg);
+  color: var(--color-agri-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Shimmer animation for hero text */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 4s ease-in-out infinite;
+}
