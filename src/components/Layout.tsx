@@ -198,7 +198,7 @@ export default function Layout() {
                 </span>
               </Link>
               <p className="text-sm leading-relaxed text-white/70">
-                30 yılı aşkın tecrübemizle İzmir ve Ege Bölgesi'nde su sondajı, dalgıç pompa satış-servis ve sulama sistemi kurulumunda anahtar teslim çözümler sunuyoruz.
+                35 yıllık tecrübemizle İzmir ve Ege Bölgesi'nde su sondajı, dalgıç pompa satış-servis ve sulama sistemi kurulumunda anahtar teslim çözümler sunuyoruz.
               </p>
             </div>
 
