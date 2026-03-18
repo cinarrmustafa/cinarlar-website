@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Calendar, User, Tag, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 
-import { supabase, type BlogPost } from '../lib/supabase';
+import { supabase, type BlogPost, normalizeCategory } from '../lib/supabase';
 
 export default function BlogDetail() {
   const { slug } = useParams();
@@ -33,7 +33,10 @@ export default function BlogDetail() {
           .single();
 
         if (fetchError) throw fetchError;
-        setBlog(currentBlog);
+        setBlog({
+          ...currentBlog,
+          category: normalizeCategory(currentBlog.category)
+        });
 
         // Fetch related blogs (posts in the same category or overall latest, excluding current)
         const { data: relatedData } = await supabase
@@ -56,9 +59,17 @@ export default function BlogDetail() {
             .order('created_at', { ascending: false })
             .limit(3 - relatedData.length);
 
-          setRelatedPosts([...relatedData, ...(fillData || [])]);
+          const normalizedRelated = [...relatedData, ...(fillData || [])].map(p => ({
+            ...p,
+            category: normalizeCategory(p.category)
+          }));
+          setRelatedPosts(normalizedRelated);
         } else {
-          setRelatedPosts(relatedData || []);
+          const normalizedRelated = (relatedData || []).map(p => ({
+            ...p,
+            category: normalizeCategory(p.category)
+          }));
+          setRelatedPosts(normalizedRelated);
         }
 
       } catch (err: any) {

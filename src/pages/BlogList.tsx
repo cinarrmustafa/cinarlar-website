@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
 
-import { supabase, type BlogPost } from '../lib/supabase';
+import { supabase, type BlogPost, BLOG_CATEGORIES, normalizeCategory } from '../lib/supabase';
 
 export default function BlogList() {
-  const categories = ['Tümü', 'Teknik', 'Teknoloji', 'Rehber', 'Sürdürülebilirlik', 'Diğer'];
+  const categories = ['Tümü', ...BLOG_CATEGORIES];
   const [activeCategory, setActiveCategory] = React.useState('Tümü');
   const [currentPage, setCurrentPage] = React.useState(1);
   const [blogs, setBlogs] = React.useState<BlogPost[]>([]);
@@ -31,7 +31,11 @@ export default function BlogList() {
           .order('created_at', { ascending: false });
 
         if (error) throw error;
-        setBlogs(data || []);
+        const normalizedData = (data || []).map(blog => ({
+          ...blog,
+          category: normalizeCategory(blog.category)
+        }));
+        setBlogs(normalizedData);
       } catch (err: any) {
         console.error('Error fetching blogs:', err);
         setError(err.message);

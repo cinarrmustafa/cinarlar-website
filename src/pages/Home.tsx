@@ -6,7 +6,7 @@ import {
   Droplets, Sprout, Sun, ArrowRight, CheckCircle2, Leaf, ShieldCheck, BarChart3,
   MapPin, PhoneCall, CheckCircle, ShieldCheck as ShieldIcon, ThumbsUp, Wrench, Clock, PenTool, Medal, Settings, Pickaxe, Calendar
 } from 'lucide-react';
-import { supabase, type BlogPost } from '../lib/supabase';
+import { supabase, type BlogPost, normalizeCategory } from '../lib/supabase';
 
 const reasons = [
   {
@@ -72,7 +72,11 @@ export default function Home() {
           .limit(3);
 
         if (error) throw error;
-        setLatestBlogs(data || []);
+        const normalizedData = (data || []).map(blog => ({
+          ...blog,
+          category: normalizeCategory(blog.category)
+        }));
+        setLatestBlogs(normalizedData);
       } catch (err) {
         console.error('Error fetching latest blogs:', err);
       } finally {

@@ -30,7 +30,7 @@ This document serves as the "source of truth" for the project. Provide this file
 
 ### Phase 2: Backend & Automation (IN PROGRESS)
 - Supabase integration for dynamic blog posts.
-- n8n integration for automated content.
+- n8n integration for automated content (Strict categories: Teknik, Teknoloji, Rehber, Sürdürülebilirlik, Diğer).
 - Contact form logic.
 
 ## 5. Branding & Styles

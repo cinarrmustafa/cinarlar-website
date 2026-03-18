@@ -37,6 +37,7 @@ create table blogs (
 
 ## 🔄 Otomasyon ve Veri Akışı
 - **Blog Otomasyonu:** n8n üzerinden haftada 2 kez otomatik içerik üretilir.
+- **İzin Verilen Kategoriler:** `Teknik`, `Teknoloji`, `Rehber`, `Sürdürülebilirlik`, `Diğer`. (Otomasyon bu listeye sadık kalmalıdır).
 - **Entegrasyon:** n8n çıktısı doğrudan Supabase REST API (POST) üzerinden `blogs` tablosuna yazılır.
 - **Arayüz:** `BlogList.tsx` ve `BlogDetail.tsx` bileşenleri veriyi dinamik olarak Supabase'den çeker.
 

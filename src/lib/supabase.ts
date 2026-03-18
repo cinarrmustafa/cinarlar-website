@@ -24,3 +24,18 @@ export type BlogPost = {
   rejection_count: number;
   created_at: string;
 };
+
+export const BLOG_CATEGORIES = ['Teknik', 'Teknoloji', 'Rehber', 'Sürdürülebilirlik', 'Diğer'] as const;
+
+export function normalizeCategory(category: string | null | undefined): string {
+  if (!category) return 'Diğer';
+  const cat = category.toLowerCase().trim();
+  if (cat.includes('rehber')) return 'Rehber';
+  if (cat.includes('teknik')) return 'Teknik';
+  if (cat.includes('teknoloji')) return 'Teknoloji';
+  if (cat.includes('sürdürülebilirlik')) return 'Sürdürülebilirlik';
+
+  // Check for exact matches in BLOG_CATEGORIES
+  const match = BLOG_CATEGORIES.find(c => c.toLowerCase() === cat);
+  return match || 'Diğer';
+}
