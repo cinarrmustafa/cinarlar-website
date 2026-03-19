@@ -394,6 +394,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Brands / Partner Section */}
+      <section className="py-20 bg-white border-t border-b border-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-sm font-bold tracking-[0.2em] text-agri-green/60 uppercase"
+            >
+              ÇÖZÜM ORTAKLARIMIZ
+            </motion.h2>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-60 hover:opacity-100 transition-opacity duration-500">
+            {/* Kurlar Dalgıç Pompa & Motor */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="grayscale hover:grayscale-0 transition-all duration-500"
+            >
+              <img
+                src="/kurlar-logo.jpg"
+                alt="Kurlar Dalgıç Pompa & Motor"
+                className="h-16 md:h-20 w-auto object-contain"
+              />
+            </motion.div>
+
+            {/* Düzgünler Plastik */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="grayscale hover:grayscale-0 transition-all duration-500"
+            >
+              <img
+                src="/duzgunler-logo.png"
+                alt="Düzgünler Plastik"
+                className="h-16 md:h-20 w-auto object-contain"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact & Service Areas Unified Section */}
       <section id="contact" className="py-24 bg-agri-bg relative overflow-hidden">
         {/* Subtle background decoration */}
