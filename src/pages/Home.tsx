@@ -420,7 +420,7 @@ export default function Home() {
               <img
                 src="/kurlar-logo.jpg"
                 alt="Kurlar Dalgıç Pompa & Motor"
-                className="h-16 md:h-20 w-auto object-contain"
+                className="h-28 md:h-40 w-auto object-contain"
               />
             </motion.div>
 
@@ -435,7 +435,7 @@ export default function Home() {
               <img
                 src="/duzgunler-logo.png"
                 alt="Düzgünler Plastik"
-                className="h-16 md:h-20 w-auto object-contain"
+                className="h-28 md:h-40 w-auto object-contain"
               />
             </motion.div>
           </div>
